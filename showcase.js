@@ -48,7 +48,14 @@ function callGithubService(serviceURL) {
 
 }
 
-function showcaseInit(userName) {
+/**
+ * This function is the driver function for ShowcaseJS
+ * @param userName of GitHub
+ * @param filter OPTIONAL, the resulting objects will have the same properties that this object has
+ */
+function showcaseInit(userName, filter) {
+    filter = filter || undefined;
+
     setupShowcase(userName);
 
     // Get the GitHub ID of the user
@@ -66,12 +73,27 @@ function showcaseInit(userName) {
 
                         // Check if the owner of the repo is the GitHub user
                         if (obj.owner.id === showcase.gitUser.userId) {
-                            showcase.repos.push(obj);
+
+                            var repo = {};
+
+                            // Include the desired properties of the repo to the object
+                            if (filter != undefined) {
+                                for (var property in filter) {
+                                    repo[property] = obj[property];
+                                }
+                            } else {
+                                repo.id = obj.id;
+                                repo.name = obj.name;
+                                repo.description = obj.description;
+                                repo["stargazers_count"] = obj["stargazers_count"];
+                            }
+
+                            showcase.repos.push(repo);
                         }
                     });
 
-                    console.log(showcase.repos);
-
+                    // End of the promises, the window.showcase.repos has the resulting objects
+                    window.showcase = showcase;
                 })
         })
 

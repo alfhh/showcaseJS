@@ -10,9 +10,18 @@
 <h2>TESTING SHOWCASEJS</h2>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<a id="linked" href="#">Click me</a>
 <script>
 
-    $(document).ready(function () {
+    $("#linked").click(function () {
+
+        var filter = {
+            "id" : true,
+            "name": true,
+            "description" : true,
+            "stargazers_count" : true
+        };
+
         showcaseInit("alfhh");
     });
 
