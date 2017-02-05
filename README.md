@@ -5,7 +5,7 @@ A friendly script that helps you showcase your GitHubs repos on your website. Th
 
 ShowcaseJS builds a JSON with infomartion of your own repos, that are starred by you. Then you can do whatever you want with this information, be creative!
 
-Note: By default ShowcaseJS gets only the id, name, description and the number of stars of the repos, but you can specify the information that you want by sending a filter object.
+Note: By default ShowcaseJS gets only the id, name, description and the number of stars of the repos, but you can specify the information that you want by sending a filter object (Check documentation below).
 
 ```javascript
 {
