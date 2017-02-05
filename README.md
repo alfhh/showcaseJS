@@ -26,7 +26,7 @@ Note: By default ShowcaseJS gets only the id, name, description and the number o
 ```
 
 ## How it works
-Using GitHub's API, ShowcaseJS retreives the repos that belongs to the user and that are also starred by the same user.
+Using GitHub's API, ShowcaseJS retreives the repos that belongs to the user and that are also starred by the same user. __ShowCaseJS requires jQuery.__
 
 ## Getting started
 
