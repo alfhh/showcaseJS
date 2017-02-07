@@ -37,7 +37,10 @@ Using GitHub's API, ShowcaseJS retreives the repos that belongs to the user and 
 **Call the init function of ShowcaseJS with your GitHub Username**
 ```javascript
 $(document).ready(function () {
-        showcaseInit("alfhh");
+        showcaseInit("alfhh", filter)
+            .then(function () {
+                console.log(window.showcase);
+            });
     });
 ```
 **Optional: you can specify the fields that you want to save from the repos by sending a filter object to the init function**
@@ -49,7 +52,10 @@ $("#myButton").click(function () {
             "description" : true,
             "stargazers_count" : true
         };
-        showcaseInit("alfhh", filter);
+        showcaseInit("alfhh", filter)
+            .then(function () {
+                    console.log(window.showcase);
+                });
     });
 ```
 If you want to know the names of the available properties that you can get check the official documentation of the GitHub Api:  https://developer.github.com/v3/repos/#get
