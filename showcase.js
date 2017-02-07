@@ -54,6 +54,9 @@ function callGithubService(serviceURL) {
  * @param filter OPTIONAL, the resulting objects will have the same properties that this object has
  */
 function showcaseInit(userName, filter) {
+
+    var mainDeferred = $.Deferred();
+
     filter = filter || undefined;
 
     setupShowcase(userName);
@@ -94,7 +97,9 @@ function showcaseInit(userName, filter) {
 
                     // End of the promises, the window.showcase.repos has the resulting objects
                     window.showcase = showcase;
+                    mainDeferred.resolve();
                 })
         })
 
+    return mainDeferred.promise;
 }
