@@ -101,5 +101,5 @@ function showcaseInit(userName, filter) {
                 })
         })
 
-    return mainDeferred.promise;
+    return mainDeferred.promise();
 }
